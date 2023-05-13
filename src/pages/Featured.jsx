@@ -3,8 +3,7 @@ import { Backdrop } from "../components";
 function Featured() {
   return (
     <div>
-      <Backdrop />
-      <h2>Avatar</h2>
+      <Backdrop image={"./images/sample1.jpg"} />
     </div>
   );
 }
