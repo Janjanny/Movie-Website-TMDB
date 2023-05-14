@@ -1,3 +1,4 @@
 import Backdrop from "./Backdrop";
+import Navbar from "./Navbar";
 
-export { Backdrop };
+export { Backdrop, Navbar };
