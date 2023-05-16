@@ -1,4 +1,5 @@
 import "../styles/Backdrop.css";
+import Slider from "./Slider";
 
 function Backdrop() {
   return (
@@ -40,6 +41,7 @@ function Backdrop() {
               <button className="trailet-btn button-gray">Watch Trailer</button>
             </div>
           </div>
+          <Slider />
         </div>
         <div className="filter"></div>
       </div>
