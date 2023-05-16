@@ -4,7 +4,7 @@ function Featured() {
   return (
     <div>
       <Navbar />
-      <Backdrop image={"./images/sample1.jpg"} />
+      <Backdrop />
     </div>
   );
 }

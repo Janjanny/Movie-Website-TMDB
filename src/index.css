@@ -4,9 +4,34 @@
   --poppins: "Poppins";
   --bebas: "Bebas Neue";
   --red: #e50914;
+  --white: #eee;
+  --gray: #3a3a3a;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--poppins);
+}
+
+.button {
+  font-size: 0.9rem;
+  padding: 0.4rem 1.6rem;
+  background-color: var(--red);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.button-gray {
+  font-size: 0.9rem;
+  padding: 0.4rem 1.6rem;
+  background-color: var(--gray);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  text-transform: capitalize;
 }
