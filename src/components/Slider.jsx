@@ -12,10 +12,28 @@ function Slider() {
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <div className="slide-container">
+        <SwiperSlide>
+          <div className="slide">
+            <img src="src/assets/images/sample2.jpg" alt="" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="slide">
+            <img src="src/assets/images/sample3.jpg" alt="" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="slide">
+            <img src="src/assets/images/sample4.jpg" alt="" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="slide">
+            <img src="src/assets/images/sample5.jpg" alt="" />
+          </div>
+        </SwiperSlide>
+      </div>
     </Swiper>
   );
 }
