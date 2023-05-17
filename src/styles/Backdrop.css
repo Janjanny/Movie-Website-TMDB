@@ -35,7 +35,7 @@
 }
 
 .movie .details {
-  width: 60%;
+  width: 50%;
   position: absolute;
   bottom: 0;
   margin-bottom: 3rem;
@@ -43,22 +43,23 @@
 }
 
 .details .title {
-  font-size: 4.3rem;
+  font-size: 3.7rem;
   font-family: var(--bebas);
   text-transform: uppercase;
   font-weight: 300;
-  line-height: 4rem;
+  line-height: 3.5rem;
 }
 
 .rating {
   display: flex;
+  font-size: 0.7rem;
   margin-bottom: 1rem;
 }
 
 .rating .circle {
   border: 2px solid var(--white);
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,12 +87,12 @@
 }
 
 .movie-info li {
-  font-size: 0.9rem;
-  margin: 0 0.9rem;
+  font-size: 0.8rem;
+  margin: 0 0.7rem;
 }
 
 .description {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   margin-bottom: 2rem;
 }
 
