@@ -1,7 +1,7 @@
-import React from "react";
+import { useState, React } from "react";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "../styles/Slider.css";
 
 // Import Swiper styles
@@ -10,10 +10,23 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 // import required modules
-import { EffectCoverflow, Pagination } from "swiper";
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
+
+//import movie data
+import { featured_movies } from "../data";
+
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 function Slider() {
-  const swiper = useSwiper();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slideClick = (slideIndex) => {
+    setCurrentSlide(slideIndex);
+    swiper.slideTo(slideIndex);
+  };
+
+  const swiper = new Swiper();
+
   return (
     <div className="swiper-container">
       <p className="ftrd">featured movies</p>
@@ -34,28 +47,21 @@ function Slider() {
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
+        onInit={(swiperInstance) => {
+          swiperInstance.controller.control = swiper;
+        }}
+        onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
       >
         <div className="slide-container">
-          <SwiperSlide>
-            <div className="slide">
-              <img src="src/assets/images/sample2.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">
-              <img src="src/assets/images/sample3.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">
-              <img src="src/assets/images/sample4.jpg" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide">
-              <img src="src/assets/images/sample5.jpg" alt="" />
-            </div>
-          </SwiperSlide>
+          {featured_movies.map((slide, index) => (
+            <SwiperSlide key={slide.id} onClick={() => slideClick(index)}>
+              <div
+                className={`slide ${index === currentSlide ? "active" : ""}`}
+              >
+                <img src={slide.image} alt="" />
+              </div>
+            </SwiperSlide>
+          ))}
         </div>
       </Swiper>
     </div>
