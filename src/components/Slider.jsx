@@ -1,3 +1,5 @@
+import React from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "../styles/Slider.css";
@@ -12,7 +14,6 @@ import { EffectCoverflow, Pagination } from "swiper";
 
 function Slider() {
   const swiper = useSwiper();
-
   return (
     <div className="swiper-container">
       <p className="ftrd">featured movies</p>
@@ -35,22 +36,22 @@ function Slider() {
       >
         <div className="slide-container">
           <SwiperSlide>
-            <div className="slide">
+            <div className="slide" onClick={() => swiper.slideNext()}>
               <img src="src/assets/images/sample2.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="slide">
+            <div className="slide" onClick={() => swiper.slideNext()}>
               <img src="src/assets/images/sample3.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="slide">
+            <div className="slide" onClick={() => swiper.slideNext()}>
               <img src="src/assets/images/sample4.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="slide">
+            <div className="slide" onClick={() => swiper.slideNext()}>
               <img src="src/assets/images/sample5.jpg" alt="" />
             </div>
           </SwiperSlide>
