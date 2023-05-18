@@ -17,6 +17,7 @@ function Slider() {
   return (
     <div className="swiper-container">
       <p className="ftrd">featured movies</p>
+
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -36,22 +37,22 @@ function Slider() {
       >
         <div className="slide-container">
           <SwiperSlide>
-            <div className="slide" onClick={() => swiper.slideNext()}>
+            <div className="slide">
               <img src="src/assets/images/sample2.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="slide" onClick={() => swiper.slideNext()}>
+            <div className="slide">
               <img src="src/assets/images/sample3.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="slide" onClick={() => swiper.slideNext()}>
+            <div className="slide">
               <img src="src/assets/images/sample4.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="slide" onClick={() => swiper.slideNext()}>
+            <div className="slide">
               <img src="src/assets/images/sample5.jpg" alt="" />
             </div>
           </SwiperSlide>
