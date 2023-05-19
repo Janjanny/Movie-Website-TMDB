@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import "../styles/Backdrop.css";
 // import Slider from "./Slider";
 import { featured_movies } from "../data";
+import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+// import required modules
+import { EffectCoverflow, Pagination } from "swiper";
 
 function Backdrop() {
   const [activeSlide, setActiveSlide] = useState(featured_movies[0]);
 
   const slideClick = (index) => {
-    console.log(index);
     const slider = featured_movies[index];
     setActiveSlide(slider);
   };
@@ -17,7 +25,7 @@ function Backdrop() {
     <>
       <div className="container">
         <div
-          className="back-div"
+          className={`back-div ${activeSlide ? "active" : ""}`}
           style={{ backgroundImage: `url("${activeSlide.image}")` }}
         >
           <div className="movie">
@@ -50,22 +58,44 @@ function Backdrop() {
                 </button>
               </div>
             </div>
-
-            <div className="slide-wrapper">
-              {featured_movies.map((slide, index) => (
-                <div
-                  className={`slide ${
-                    activeSlide === slide ? "active" : "inActive"
-                  }`}
-                  key={index}
+            <div className="slide-container">
+              <p>Featured Movies</p>
+              <div className="slide-wrapper">
+                <Swiper
+                  effect={"coverflow"}
+                  grabCursor={true}
+                  centeredSlides={true}
+                  slidesPerView={2}
+                  loop={true}
+                  coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 200,
+                    modifier: 1,
+                    slideShadows: true,
+                  }}
+                  pagination={false}
+                  modules={[EffectCoverflow, Pagination]}
+                  className="mySwiper"
                 >
-                  <img
-                    src={slide.image}
-                    alt=""
-                    onClick={() => slideClick(index)}
-                  />
-                </div>
-              ))}
+                  {featured_movies.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                      <div
+                        className={`slide ${
+                          activeSlide === slide ? "activeSlide" : ""
+                        }`}
+                        key={index}
+                      >
+                        <img
+                          src={slide.image}
+                          alt=""
+                          onClick={() => slideClick(index)}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
           </div>
           <div className="filter"></div>

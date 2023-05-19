@@ -31,7 +31,7 @@ export const featured_movies = [
     title: "The Super Mario Bros.",
     rating: 76,
     date: "04/19/2023 (PH)",
-    genre: "Animation, Family, Adventure, Fantasy, Comedy",
+    genre: "Animation, Family, Adventure, Fantasy",
     duration: "1h 32m",
     summary:
       "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
