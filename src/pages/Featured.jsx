@@ -1,4 +1,4 @@
-import { Backdrop, Navbar, Slider } from "../components";
+import { Backdrop, Navbar } from "../components";
 
 function Featured() {
   return (

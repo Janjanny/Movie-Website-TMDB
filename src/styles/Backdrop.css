@@ -34,6 +34,40 @@
   z-index: 1;
 }
 
+.movie .slide-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  overflow-x: scroll;
+  width: 40%;
+  height: 11rem;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 3rem;
+}
+
+.slide-wrapper .slide {
+  min-width: 15rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slide img {
+  width: 100%;
+  display: flex;
+  object-fit: cover;
+}
+
+.active {
+  border: 5px solid white;
+}
+
+.inActive {
+  max-width: 12rem;
+}
+
 .movie .details {
   width: 50%;
   position: absolute;

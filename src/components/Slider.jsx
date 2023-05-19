@@ -1,70 +1,58 @@
-import { useState, React } from "react";
+import React, { useState } from "react";
+
+// import required modules
+import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+
+//slider style
 import "../styles/Slider.css";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-
-// import required modules
-import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 //import movie data
 import { featured_movies } from "../data";
 
-SwiperCore.use([EffectCoverflow, Pagination]);
+SwiperCore.use([Navigation, Thumbs, FreeMode]);
 
 function Slider() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slideClick = (slideIndex) => {
-    setCurrentSlide(slideIndex);
-    swiper.slideTo(slideIndex);
-  };
-
-  const swiper = new Swiper();
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="swiper-container">
-      <p className="ftrd">featured movies</p>
-
+    <>
       <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={"2"}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
         }}
-        loop={true}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
-        className="mySwiper"
-        onInit={(swiperInstance) => {
-          swiperInstance.controller.control = swiper;
-        }}
-        onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+        spaceBetween={10}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2"
       >
-        <div className="slide-container">
-          {featured_movies.map((slide, index) => (
-            <SwiperSlide key={slide.id} onClick={() => slideClick(index)}>
-              <div
-                className={`slide ${index === currentSlide ? "active" : ""}`}
-              >
-                <img src={slide.image} alt="" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </div>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
       </Swiper>
-    </div>
+    </>
   );
 }
 export default Slider;
