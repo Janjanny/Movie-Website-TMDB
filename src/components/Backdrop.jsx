@@ -24,6 +24,7 @@ function Backdrop() {
   return (
     <>
       <div className="container">
+        {/* backdrops */}
         <div
           className={`back-div ${activeSlide ? "active" : ""}`}
           style={{ backgroundImage: `url("${activeSlide.image}")` }}
@@ -61,6 +62,7 @@ function Backdrop() {
             <div className="slide-container">
               <p>Featured Movies</p>
               <div className="slide-wrapper">
+                {/* swiper */}
                 <Swiper
                   effect={"coverflow"}
                   grabCursor={true}

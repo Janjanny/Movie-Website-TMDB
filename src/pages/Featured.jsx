@@ -1,9 +1,8 @@
-import { Backdrop, Navbar } from "../components";
+import { Backdrop } from "../components";
 
 function Featured() {
   return (
     <div>
-      <Navbar />
       <Backdrop />
     </div>
   );

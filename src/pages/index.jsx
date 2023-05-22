@@ -1,3 +1,4 @@
 import Featured from "./Featured";
+import Movies from "./Movies";
 
-export { Featured };
+export { Featured, Movies };

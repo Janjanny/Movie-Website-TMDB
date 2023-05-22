@@ -1,9 +1,13 @@
 import "./App.css";
-import { Featured } from "./pages";
+import { Featured, Movies } from "./pages";
+import { Navbar } from "./components";
+
 function App() {
   return (
     <>
+      <Navbar />
       <Featured />
+      <Movies />
     </>
   );
 }

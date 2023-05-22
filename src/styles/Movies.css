@@ -1,0 +1,8 @@
+@import url("../index.css");
+
+.movie-container {
+  width: 85%;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: var(--dark);
+}
