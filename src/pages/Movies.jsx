@@ -55,7 +55,7 @@ function Movies() {
                     handleDropdownValue("Movies");
                   }}
                 >
-                  Movies
+                  Moviesasdsss
                 </li>
                 <li
                   onClick={() => {
