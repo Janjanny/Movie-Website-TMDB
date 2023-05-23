@@ -80,3 +80,25 @@
   font-size: var(--normal2);
   margin: 0.5rem 0;
 }
+
+.category-buttons {
+  display: flex;
+  margin: 0 auto;
+  width: fit-content;
+  margin-top: 2rem;
+}
+
+.category-buttons .category-btn {
+  font-size: var(--normal);
+  padding: 0.4rem 1.3rem;
+  border-radius: 5px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  background-color: var(--gray);
+  border: none;
+  color: var(--white);
+}
+
+.category-btn.category-active {
+  background-color: var(--red);
+}
