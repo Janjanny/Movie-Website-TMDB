@@ -6,4 +6,77 @@
   min-height: 100vh;
   background-color: var(--dark);
   color: var(--white);
+  padding-top: 15rem;
+}
+
+.search-bar {
+  display: flex;
+  background-color: var(--gray);
+  width: 60%;
+  padding: 0.8rem 1rem;
+  margin: 0 auto;
+  font-size: var(--normal);
+  align-items: center;
+  border-radius: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.search-bar .icon {
+  font-size: 2rem;
+  margin-right: var(--normal2);
+  display: grid;
+  place-items: center;
+}
+
+.search-bar .input-bar {
+  font-size: var(--normal2);
+  width: 30rem;
+  margin-right: 1rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+}
+
+.search-bar .input-bar::placeholder {
+  color: rgb(197, 197, 197);
+}
+
+.search-bar .search-bar-divider {
+  height: 1.6rem;
+  margin: 0 1rem;
+}
+
+.search-bar .search-location {
+  font-size: var(--normal2);
+  margin-right: 1rem;
+  cursor: default;
+}
+
+.toggle-btn {
+  display: grid;
+  place-items: center;
+  font-size: var(--normal2);
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  background-color: var(--gray);
+  width: fit-content;
+  padding: 0.5rem 2.3rem;
+  position: absolute;
+  right: 0;
+  top: 70px;
+  border-radius: 1rem;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.dropdown-menu ul li {
+  font-size: var(--normal2);
+  margin: 0.5rem 0;
 }
