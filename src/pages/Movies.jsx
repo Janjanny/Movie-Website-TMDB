@@ -28,6 +28,7 @@ function Movies() {
             </button>
           ))}
         </div>
+        <div className="red-line"></div>
       </div>
     </>
   );

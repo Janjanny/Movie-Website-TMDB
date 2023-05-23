@@ -102,3 +102,16 @@
 .category-btn.category-active {
   background-color: var(--red);
 }
+
+.red-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(58, 58, 58, 0) 0%,
+    #e50914 45.35%,
+    rgba(58, 58, 58, 0) 98.36%
+  );
+  display: flex;
+  margin-top: 3rem;
+}
