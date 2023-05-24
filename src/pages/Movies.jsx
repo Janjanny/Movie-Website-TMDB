@@ -46,22 +46,17 @@ function Movies() {
               {/* <div className="movie-card-image">
                 <img src={movie.image} alt="" />
               </div> */}
-              <div
-                className="movie-card-info"
-                style={{
-                  transform: `translateY(${
-                    movie.title.length > 20 ? "68%" : "78%"
-                  })`,
-                }}
-              >
+              <div className="movie-card-info">
                 <p className="title">{movie.title}</p>
                 <ul>
                   <li>{movie.duration}</li>
                   <li>{movie.genre}</li>
                   <li>{movie.year}</li>
                 </ul>
-                <p className="summary">{movie.summary}</p>
-                <button className="button">See More</button>
+                <div className="details">
+                  <p className="summary">{movie.summary}</p>
+                  <button className="button">See More</button>
+                </div>
               </div>
             </div>
           ))}
