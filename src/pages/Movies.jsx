@@ -34,11 +34,26 @@ function Movies() {
         {/* movie section */}
         <div className="movie-grid">
           {movieList.map((movie, i) => (
-            <div className="movie-card" key={i}>
-              <div className="movie-card-image">
+            <div
+              className="movie-card"
+              key={i}
+              style={{
+                background: `url(${movie.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+              }}
+            >
+              {/* <div className="movie-card-image">
                 <img src={movie.image} alt="" />
-              </div>
-              <div className="movie-card-info">
+              </div> */}
+              <div
+                className="movie-card-info"
+                style={{
+                  transform: `translateY(${
+                    movie.title.length > 20 ? "68%" : "78%"
+                  })`,
+                }}
+              >
                 <p className="title">{movie.title}</p>
                 <ul>
                   <li>{movie.duration}</li>
