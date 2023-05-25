@@ -1,5 +1,5 @@
 import Backdrop from "./Backdrop";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
-
-export { Backdrop, Navbar, SearchBar };
+import Slider from "./Slider";
+export { Backdrop, Navbar, SearchBar, Slider };
