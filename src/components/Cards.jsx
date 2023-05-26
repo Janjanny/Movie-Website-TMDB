@@ -44,7 +44,7 @@ function Cards({ movieList }) {
               <p className="summary">
                 {movie.summary.substring(0, movie.summary.indexOf("."))}.
               </p>
-              <button className="button">See More</button>
+              <button className="button">Watch Trailer</button>
             </div>
           </div>
         </div>
