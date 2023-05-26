@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/Movies.css";
-import { SearchBar } from "../components";
+import { Cards, SearchBar } from "../components";
 import { category, movieList } from "../data";
 
 function Movies() {
@@ -33,33 +33,7 @@ function Movies() {
 
         {/* movie section */}
         <div className="movie-grid">
-          {movieList.map((movie, i) => (
-            <div
-              className="movie-card"
-              key={i}
-              style={{
-                background: `url(${movie.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center center",
-              }}
-            >
-              {/* <div className="movie-card-image">
-                <img src={movie.image} alt="" />
-              </div> */}
-              <div className="movie-card-info">
-                <p className="title">{movie.title}</p>
-                <ul>
-                  <li>{movie.duration}</li>
-                  <li>{movie.genre}</li>
-                  <li>{movie.year}</li>
-                </ul>
-                <div className="details">
-                  <p className="summary">{movie.summary}</p>
-                  <button className="button">See More</button>
-                </div>
-              </div>
-            </div>
-          ))}
+          <Cards movieList={movieList} />
         </div>
       </div>
     </>

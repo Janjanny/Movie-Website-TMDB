@@ -74,15 +74,17 @@ export const movieList = [
   {
     image: "src/assets/images/posters/avatar-poster.jpg",
     title: "Avatar: The Way of the Water",
+    rating: 77,
     duration: "2h 1m",
     genre: "Science Fiction, Drama",
     year: 2019,
     summary:
-      "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids).",
   },
   {
     image: "src/assets/images/posters/mario-poster.jpg",
     title: "The Super Mario Bros",
+    rating: 78,
     duration: "1h 32m",
     genre: "Animation, Family",
     year: 2023,
@@ -92,6 +94,7 @@ export const movieList = [
   {
     image: "src/assets/images/posters/fast-poster.jpg",
     title: "Fast X",
+    rating: 69,
     duration: "2h 22m",
     genre: "Action, Adventure",
     year: 2023,
@@ -101,6 +104,7 @@ export const movieList = [
   {
     image: "src/assets/images/posters/evil-poster.jpg",
     title: "Evil Dead Rise",
+    rating: 71,
     duration: "1h 36m",
     genre: "Thriller, Horror",
     year: 2023,
@@ -111,6 +115,7 @@ export const movieList = [
   {
     image: "src/assets/images/posters/sisu-poster.jpg",
     title: "Sisu",
+    rating: 75,
     duration: "1h 31m",
     genre: "Action, War",
     year: 2023,
@@ -121,6 +126,7 @@ export const movieList = [
   {
     image: "src/assets/images/posters/ant-man-poster.jpg",
     title: "Ant-Man and the Wasp: Quantumania",
+    rating: 65,
     duration: "2h 5m",
     genre: "Action, Adventure",
     year: 2023,
