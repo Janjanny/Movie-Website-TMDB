@@ -1,5 +1,27 @@
 // put some async await here to fetch data when everything is okay
 
+import axios from "axios";
+
+export const tmdb_movies = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+  headers: {
+    Accept: "application/json",
+  },
+  params: {
+    api_key: "2bb703b7d5be1db2df6bb74e605cc966",
+  },
+});
+
+// export default axios.create({
+//   baseURL: "https://api.themoviedb.org/3",
+//   headers: {
+//     Accept: "application/json",
+//   },
+//   params: {
+//     api_key: "2bb703b7d5be1db2df6bb74e605cc966",
+//   },
+// });
+
 export const featured_movies = [
   {
     id: 0,
@@ -62,75 +84,4 @@ export const featured_movies = [
   },
 ];
 
-export const category = [
-  "All Movies",
-  "Popular",
-  "Now Playing",
-  "Upcoming",
-  "Top Rated",
-];
-
-export const movieList = [
-  {
-    image: "src/assets/images/posters/avatar-poster.jpg",
-    title: "Avatar: The Way of the Water",
-    rating: 77,
-    duration: "2h 1m",
-    genre: "Science Fiction, Drama",
-    year: 2019,
-    summary:
-      "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids).",
-  },
-  {
-    image: "src/assets/images/posters/mario-poster.jpg",
-    title: "The Super Mario Bros",
-    rating: 78,
-    duration: "1h 32m",
-    genre: "Animation, Family",
-    year: 2023,
-    summary:
-      "While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.",
-  },
-  {
-    image: "src/assets/images/posters/fast-poster.jpg",
-    title: "Fast X",
-    rating: 69,
-    duration: "2h 22m",
-    genre: "Action, Adventure",
-    year: 2023,
-    summary:
-      "Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced.",
-  },
-  {
-    image: "src/assets/images/posters/evil-poster.jpg",
-    title: "Evil Dead Rise",
-    rating: 71,
-    duration: "1h 36m",
-    genre: "Thriller, Horror",
-    year: 2023,
-    summary:
-      "Three siblings find an ancient vinyl that gives birth to bloodthirsty demons that run amok in a Los Angeles apartment building and thrusts them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
-  },
-
-  {
-    image: "src/assets/images/posters/sisu-poster.jpg",
-    title: "Sisu",
-    rating: 75,
-    duration: "1h 31m",
-    genre: "Action, War",
-    year: 2023,
-    summary:
-      "Deep in the wilderness of Lapland, Aatami Korpi is searching for gold but after he stumbles upon Nazi patrol, a breathtaking and gold-hungry chase through the destroyed and mined Lapland wilderness begins.",
-  },
-
-  {
-    image: "src/assets/images/posters/ant-man-poster.jpg",
-    title: "Ant-Man and the Wasp: Quantumania",
-    rating: 65,
-    duration: "2h 5m",
-    genre: "Action, Adventure",
-    year: 2023,
-    summary:
-      "Super-Hero partners Scott Lang and Hope van Dyne, along with with Hope's parents Janet van Dyne and Hank Pym, and Scott's daughter Cassie Lang, find themselves exploring the Quantum Realm, interacting with strange new creatures.",
-  },
-];
+export const category = ["Now Playing", "Popular", "Upcoming", "Top Rated"];

@@ -1,14 +1,25 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 import "../styles/Backdrop.css";
-import { featured_movies } from "../data";
+import { featured_movies, tmdb_movies } from "../data";
 import Slider from "./Slider";
 
 function Backdrop() {
+  const [featuredMovie, setFeaturedMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const { data } = await tmdb_movies.get("movie/popular");
+      setFeaturedMovies(data.results.slice(0, 4));
+      console.log(data.results.slice(0, 4));
+    };
+    fetchMovies();
+  }, []);
+
   const [activeSlide, setActiveSlide] = useState(featured_movies[0]);
 
   const slideClick = (index) => {
-    const slider = featured_movies[index];
+    const slider = featuredMovie[index];
     setActiveSlide(slider);
   };
 
@@ -18,7 +29,9 @@ function Backdrop() {
         {/* backdrops */}
         <div
           className={`back-div ${activeSlide ? "active" : ""}`}
-          style={{ backgroundImage: `url("${activeSlide.image}")` }}
+          style={{
+            backgroundImage: `url("https://www.themoviedb.org/t/p/w220_and_h330_face/${activeSlide.backdrop_path}")`,
+          }}
         >
           <div className="movie">
             <div className="details">
@@ -26,7 +39,7 @@ function Backdrop() {
               <div className="rating">
                 <div className="circle">
                   <p className="rate">
-                    {activeSlide.rating}
+                    {activeSlide.vote_average * 10}
                     <span className="percent">%</span>
                   </p>
                 </div>
@@ -34,14 +47,14 @@ function Backdrop() {
                 <div className="movie-info">
                   <ul>
                     <li>User Rating</li>
-                    <li className="date">{activeSlide.date}</li>
+                    <li className="date">{activeSlide.release_date}</li>
                     <li className="genre">{activeSlide.genre}</li>
                     <li className="duration">{activeSlide.duration}</li>
                   </ul>
                 </div>
               </div>
               <div className="description">
-                <p>{activeSlide.summary}</p>
+                <p>{activeSlide.overview}</p>
               </div>
               <div className="buttons">
                 <button className="play-btn button">Play Now</button>
@@ -55,7 +68,7 @@ function Backdrop() {
               <div className="slide-wrapper">
                 {/* swiper */}
                 <Slider
-                  slides={featured_movies}
+                  slides={featuredMovie}
                   activeSlide={activeSlide}
                   slideClick={slideClick}
                 />

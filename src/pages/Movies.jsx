@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Movies.css";
 import { Cards, SearchBar } from "../components";
-import { category, movieList } from "../data";
+import { category, tmdb_movies } from "../data";
 
 function Movies() {
-  const [activeButton, setActiveButton] = useState(null);
+  const [movies, setMovies] = useState([]);
 
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const { data } = await tmdb_movies.get("movie/now_playing");
+      setMovies(data.results);
+      console.log(data.results);
+    };
+    fetchMovies();
+  }, []);
+
+  const [activeButton, setActiveButton] = useState(0);
   const handleCtgry = (id) => {
     setActiveButton(id);
   };
@@ -33,7 +43,9 @@ function Movies() {
 
         {/* movie section */}
         <div className="movie-grid">
-          <Cards movieList={movieList} />
+          {movies.map((movie, i) => (
+            <Cards key={i} {...movie} />
+          ))}
         </div>
       </div>
     </>

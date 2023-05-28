@@ -1,4 +1,4 @@
-import { SwiperSlide, Swiper, useSwiper } from "swiper/react";
+import { SwiperSlide, Swiper } from "swiper/react";
 
 import "../styles/Backdrop.css";
 
@@ -37,7 +37,7 @@ function Slider({ slides, activeSlide, slideClick }) {
               key={index}
             >
               <img
-                src={slides.image}
+                src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${slides.backdrop_path}`}
                 alt=""
                 onClick={() => slideClick(index)}
               />
