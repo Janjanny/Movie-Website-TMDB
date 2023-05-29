@@ -2,7 +2,7 @@ import "../styles/Card.css";
 
 function Cards({
   poster_path,
-  rating,
+  vote_average,
   title,
   duration,
   genre,
@@ -10,6 +10,7 @@ function Cards({
   overview,
 }) {
   const url = `https://www.themoviedb.org/t/p/w220_and_h330_face/${poster_path}`;
+  const rating = vote_average * 10;
   return (
     <>
       <div
@@ -34,11 +35,11 @@ function Cards({
                 ? "#00D900"
                 : rating / 10 >= 9.0 && rating / 10 <= 10.0
                 ? "#00D900"
-                : "#eee"
+                : "#111"
             }`,
           }}
         >
-          {rating / 10}
+          {vote_average}
         </div>
         <div className="movie-card-info">
           <p className="title">{title}</p>

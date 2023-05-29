@@ -6,22 +6,51 @@ import Slider from "./Slider";
 
 function Backdrop() {
   const [featuredMovie, setFeaturedMovies] = useState([]);
+  const [activeSlide, setActiveSlide] = useState(featuredMovie);
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const { data } = await tmdb_movies.get("movie/popular");
-      setFeaturedMovies(data.results.slice(0, 4));
-      console.log(data.results.slice(0, 4));
+      // fetch the first API (List of Movies)
+      // assign the first API Data to a new variable (firstData)
+      const { data: firstData } = await tmdb_movies.get("movie/popular");
+      const slicedData = firstData.results.slice(0, 4);
+
+      // get the ids
+      const ids = slicedData.map((item) => item.id);
+      console.log(ids);
+
+      // assign the slicedData arrays to the featuredMovies state for the slider
+      setFeaturedMovies(slicedData);
+
+      // set the firstValue of the activeSlide for the backdrop details
+      setActiveSlide(slicedData[1]);
+      console.log(slicedData);
+
+      // fetch the second API (details of the specific movie using the activeSlide id)
+      // question mark if for checking if activeSlide is null or not
+      const { data: secondAPi } = await tmdb_movies.get(
+        `movie/${activeSlide?.id}`
+      );
+      console.log(secondAPi);
+
+      // set the genres
+      const movieGenres = secondAPi.genres.map((genre) => genre.name);
+      setGenres(movieGenres);
+      console.log(movieGenres);
     };
     fetchMovies();
   }, []);
 
-  const [activeSlide, setActiveSlide] = useState(featured_movies[0]);
-
-  const slideClick = (index) => {
+  const slideClick = async (index) => {
     const slider = featuredMovie[index];
     setActiveSlide(slider);
+
+    const { genreData } = await tmdb_movies.get(`movie/${slider.id}`);
+    setGenres(genreData.genre);
   };
+
+  console.log(genres);
 
   return (
     <>
@@ -30,10 +59,11 @@ function Backdrop() {
         <div
           className={`back-div ${activeSlide ? "active" : ""}`}
           style={{
-            backgroundImage: `url("https://www.themoviedb.org/t/p/w220_and_h330_face/${activeSlide.backdrop_path}")`,
+            backgroundImage: `url("https://www.themoviedb.org/t/p/original/${activeSlide.backdrop_path}")`,
           }}
         >
           <div className="movie">
+            {/* movie details */}
             <div className="details">
               <h1 className="title">{activeSlide.title}</h1>
               <div className="rating">
@@ -48,7 +78,7 @@ function Backdrop() {
                   <ul>
                     <li>User Rating</li>
                     <li className="date">{activeSlide.release_date}</li>
-                    <li className="genre">{activeSlide.genre}</li>
+                    <li className="genre">{genres.join(", ")}</li>
                     <li className="duration">{activeSlide.duration}</li>
                   </ul>
                 </div>
@@ -63,6 +93,8 @@ function Backdrop() {
                 </button>
               </div>
             </div>
+
+            {/* slide container */}
             <div className="slide-container">
               <p>Featured Movies</p>
               <div className="slide-wrapper">

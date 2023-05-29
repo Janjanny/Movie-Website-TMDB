@@ -47,6 +47,12 @@ function Movies() {
             <Cards key={i} {...movie} />
           ))}
         </div>
+
+        <div className="movie-backdrop">
+          <video autoPlay loop muted>
+            <source src="https://youtu.be/KydqdKKyGEk" type="video/mp4" />
+          </video>
+        </div>
       </div>
     </>
   );

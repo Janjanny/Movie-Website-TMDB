@@ -37,7 +37,7 @@ function Slider({ slides, activeSlide, slideClick }) {
               key={index}
             >
               <img
-                src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${slides.backdrop_path}`}
+                src={`https://www.themoviedb.org/t/p/original/${slides.backdrop_path}`}
                 alt=""
                 onClick={() => slideClick(index)}
               />
