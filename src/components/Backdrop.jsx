@@ -9,16 +9,11 @@ function Backdrop() {
   const [activeSlide, setActiveSlide] = useState(featuredMovie);
   const [genres, setGenres] = useState([]);
 
+  // useEffect for fetching the movies
   useEffect(() => {
     const fetchMovies = async () => {
-      // fetch the first API (List of Movies)
-      // assign the first API Data to a new variable (firstData)
       const { data: firstData } = await tmdb_movies.get("movie/popular");
       const slicedData = firstData.results.slice(0, 4);
-
-      // get the ids
-      const ids = slicedData.map((item) => item.id);
-      console.log(ids);
 
       // assign the slicedData arrays to the featuredMovies state for the slider
       setFeaturedMovies(slicedData);
@@ -26,28 +21,28 @@ function Backdrop() {
       // set the firstValue of the activeSlide for the backdrop details
       setActiveSlide(slicedData[1]);
       console.log(slicedData);
-
-      // fetch the second API (details of the specific movie using the activeSlide id)
-      // question mark if for checking if activeSlide is null or not
-      const { data: secondAPi } = await tmdb_movies.get(
-        `movie/${activeSlide?.id}`
-      );
-      console.log(secondAPi);
-
-      // set the genres
-      const movieGenres = secondAPi.genres.map((genre) => genre.name);
-      setGenres(movieGenres);
-      console.log(movieGenres);
     };
     fetchMovies();
   }, []);
 
+  useEffect(() => {
+    const fetchGenres = async () => {
+      if (activeSlide) {
+        const genreURL = `movies/${activeSlide.id}`;
+        console.log(genreURL);
+        const { data: genreData } = await tmdb_movies.get(
+          `movie/${activeSlide.id}`
+        );
+        const movieGenres = genreData.genres.map((genre) => genre.name);
+        setGenres(movieGenres);
+      }
+    };
+    fetchGenres();
+  }, [activeSlide]);
+
   const slideClick = async (index) => {
     const slider = featuredMovie[index];
     setActiveSlide(slider);
-
-    const { genreData } = await tmdb_movies.get(`movie/${slider.id}`);
-    setGenres(genreData.genre);
   };
 
   console.log(genres);
