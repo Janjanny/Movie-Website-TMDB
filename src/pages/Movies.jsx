@@ -5,12 +5,24 @@ import { category, tmdb_movies } from "../data";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
+    // fetch movies
     const fetchMovies = async () => {
       const { data } = await tmdb_movies.get("movie/now_playing");
       setMovies(data.results);
-      console.log(data.results);
+      // console.log(movies);
+
+      //fetch genres of movies
+      const genresPromise = data.results.map(async (movie) => {
+        const { data: genresData } = await tmdb_movies.get(`movie/${movie.id}`);
+        return genresData.genres.map((genre) => genre.name);
+      });
+
+      const movieGenres = await Promise.all(genresPromise);
+      setGenres(movieGenres);
+      // console.log(movieGenres);
     };
     fetchMovies();
   }, []);
@@ -44,14 +56,8 @@ function Movies() {
         {/* movie section */}
         <div className="movie-grid">
           {movies.map((movie, i) => (
-            <Cards key={i} {...movie} />
+            <Cards key={i} {...movie} genre={genres[i]} />
           ))}
-        </div>
-
-        <div className="movie-backdrop">
-          <video autoPlay loop muted>
-            <source src="https://youtu.be/KydqdKKyGEk" type="video/mp4" />
-          </video>
         </div>
       </div>
     </>

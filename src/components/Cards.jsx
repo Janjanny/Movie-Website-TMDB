@@ -39,14 +39,13 @@ function Cards({
             }`,
           }}
         >
-          {vote_average}
+          {vote_average.toFixed(1)}
         </div>
         <div className="movie-card-info">
           <p className="title">{title}</p>
           <ul>
-            <li>{duration}</li>
-            <li>{genre}</li>
-            <li>{release_date}</li>
+            <li>{genre.join(" ")}</li>
+            <li>{release_date.substring(0, 4)}</li>
           </ul>
           <div className="details">
             <p className="summary">
