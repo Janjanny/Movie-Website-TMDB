@@ -116,13 +116,21 @@
   margin-top: 3rem;
 }
 
+.section-title {
+  margin-top: 2rem;
+  font-size: var(--title2);
+  /* text-align: center; */
+  font-family: var(--bebas);
+  font-weight: lighter;
+}
+
 /* movie grid designn */
 .movie-grid {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-top: 5rem;
+  margin-top: 0.5rem;
   width: 100%;
 }
 

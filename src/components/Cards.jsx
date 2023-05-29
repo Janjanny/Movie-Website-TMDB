@@ -11,6 +11,8 @@ function Cards({
 }) {
   const url = `https://www.themoviedb.org/t/p/w220_and_h330_face/${poster_path}`;
   const rating = vote_average * 10;
+  const periodsCount = overview.split(".").length;
+  console.log(periodsCount);
   return (
     <>
       <div
@@ -44,12 +46,15 @@ function Cards({
         <div className="movie-card-info">
           <p className="title">{title}</p>
           <ul>
-            <li>{genre.join(" ")}</li>
+            <li>{genre?.join(" ")}</li>
             <li>{release_date.substring(0, 4)}</li>
           </ul>
           <div className="details">
             <p className="summary">
-              {overview.substring(0, overview.indexOf("."))}.
+              {periodsCount > 2
+                ? overview.substring(0, overview.indexOf("."))
+                : overview}
+              .
             </p>
             <button className="button">See More</button>
           </div>

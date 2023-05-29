@@ -4,13 +4,23 @@ import { Cards, SearchBar } from "../components";
 import { category, tmdb_movies } from "../data";
 
 function Movies() {
+  const [activeButton, setActiveButton] = useState(0);
+  const handleCtgry = (id) => {
+    setActiveButton(id);
+  };
+  const movieCategory = category[activeButton]
+    .toLowerCase()
+    .split(" ")
+    .join("_");
+  // console.log(movieCategory);
+
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     // fetch movies
     const fetchMovies = async () => {
-      const { data } = await tmdb_movies.get("movie/now_playing");
+      const { data } = await tmdb_movies.get(`movie/${movieCategory}`);
       setMovies(data.results);
       // console.log(movies);
 
@@ -22,15 +32,10 @@ function Movies() {
 
       const movieGenres = await Promise.all(genresPromise);
       setGenres(movieGenres);
-      // console.log(movieGenres);
+      console.log(movieGenres);
     };
     fetchMovies();
-  }, []);
-
-  const [activeButton, setActiveButton] = useState(0);
-  const handleCtgry = (id) => {
-    setActiveButton(id);
-  };
+  }, [activeButton]);
 
   return (
     <>
@@ -52,7 +57,7 @@ function Movies() {
           ))}
         </div>
         <div className="red-line"></div>
-
+        <h1 className="section-title">{category[activeButton]}</h1>
         {/* movie section */}
         <div className="movie-grid">
           {movies.map((movie, i) => (
