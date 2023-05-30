@@ -10,7 +10,6 @@ function Backdrop() {
   const [genres, setGenres] = useState([]);
 
   // useEffect for fetching the movies
-  //add samoe comment
   useEffect(() => {
     const fetchMovies = async () => {
       const { data: firstData } = await tmdb_movies.get("movie/popular");
