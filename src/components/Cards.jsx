@@ -4,7 +4,6 @@ function Cards({
   poster_path,
   vote_average,
   title,
-  duration,
   genre,
   release_date,
   overview,

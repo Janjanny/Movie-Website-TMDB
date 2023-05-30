@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "../styles/Backdrop.css";
-import { featured_movies, tmdb_movies } from "../data";
+import { tmdb_movies } from "../data";
 import Slider from "./Slider";
 
 function Backdrop() {
@@ -25,6 +25,7 @@ function Backdrop() {
     fetchMovies();
   }, []);
 
+  // useEffect for fetching Genres
   useEffect(() => {
     const fetchGenres = async () => {
       if (activeSlide) {
