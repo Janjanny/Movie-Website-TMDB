@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import "../styles/Backdrop.css";
-import { tmdb_movies } from "../data";
 import Slider from "./Slider";
+import { tmdb_movies } from "../data";
 
 function Backdrop() {
   const [featuredMovie, setFeaturedMovies] = useState([]);
